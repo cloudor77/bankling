@@ -1,0 +1,53 @@
+:root {
+  --main-bg-color: #0acfbb;
+  --secondary-bg-color: #fff;
+  --terciary-bg-color: #ff4b1f;
+  --fourth-bg-color: #ffe000;
+
+  --main-ink-color-1: #3f3939;
+  --main-ink-color-2: rgb(240, 240, 240);
+
+  --main-font-size: 1rem;
+
+  --gigantic-font: 2.5rem;
+  --big-font: 1.75rem;
+  --medium-font: 1.15rem;
+  --small-font: 0.8rem;
+
+  --total-incoming: #38ef7d;
+  --total-outgoing: #93291f;
+
+  --transfer-incomings: linear-gradient(to right, #38ef7d, #11998e);
+  --transfer-outgoings: linear-gradient(to right, #93291e, #ed213a);
+
+  --border-size-large: 0.035rem;
+  --border-size-small: 0.025rem;
+
+  --button-padding: 0.4rem 1.4rem;
+  --button-label-radius: 0.4rem;
+  --button-width: 12.5rem;
+
+  --warning-color: #93291f;
+}
+
+*,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+body {
+  background-color: #d7dde8;
+}
+
+html {
+  font-size: var(--main-font-size);
+  color: var(--main-ink-color-1);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.modal-showup {
+  z-index: 1000;
+}

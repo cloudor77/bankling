@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bank App</title>
+
+    <link rel="stylesheet" href="basic.css" />
+
+    <link rel="stylesheet" href="app.css" />
+
+    <script defer src="app.js"></script>
+  </head>
+
+  <body>
+    <div id="entire__space">
+      <div class="nav__space">
+        <nav class="nav__segment">
+          <p id="nav__title">Bankling</p>
+          <form class="login__segment">
+            <div class="login__input--label">
+              <label for="username">Username: </label>
+              <input type="text" class="login__input--username" />
+            </div>
+            <div class="login__input--label">
+              <label>Password: </label>
+              <input type="password" class="login__input--passcode" />
+            </div>
+            <button class="login__button">Log In</button>
+            <p class="login__warning"></p>
+          </form>
+          <button class="login__button logout__button">Log Out</button>
+        </nav>
+      </div>
+
+      <div class="app">
+        <div class="balance__segment">
+          <p class="balance__welcome--user"></p>
+          <p class="current__balance--text">Current Balance:</p>
+          <p class="current_balance--value">3245$</p>
+        </div>
+
+        <div class="transfers__segment transfer__segment--radius">
+          <div class="transfers__row transfer__row--border-bottom">
+            <div class="transfers__type_date">
+              <div class="transfer_type transfer__type--incoming">
+                <p><span>1</span>Incoming</p>
+              </div>
+              <p class="transfer__date">31/07/2023</p>
+            </div>
+            <div class="transfer__amount">
+              <span class="transfer__amount--value">4000$</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="transfers__segment--details transfer__segment--radius">
+          <div class="details__row">
+            <p>Total Incoming:</p>
+            <span class="transfer__total--incoming">+ 3500$</span>
+          </div>
+          <div class="details__row">
+            <p>Total Outgoings:</p>
+            <span class="transfer__total--outgoings">- 1500$</span>
+          </div>
+          <p class="timeout"></p>
+        </div>
+
+        <div class="transfers__segment--operations">
+          <div
+            class="transfers__segment--operations-loan transfer__segment--radius transfer__segment--operations-box"
+          >
+            <form
+              class="transfer__segment--form transfer__segment--form--height form__loan"
+            >
+              <label class="transfer__segement--label" for=""
+                >Get a loan:</label
+              >
+              <input type="number" name="" id="loan" />
+              <button>Confirm</button>
+            </form>
+          </div>
+
+          <div
+            class="transfers__segment--operations-transfer transfer__segment--radius transfer__segment--operations-box form__transfer"
+          >
+            <form
+              class="transfer__segment--form--second transfer__segment--form--height"
+            >
+              <label for="">Amount</label>
+              <input type="number" id="transfer" />
+              <label for="">Transfer To</label>
+              <input type="text" id="account" />
+              <button>Confirm</button>
+            </form>
+          </div>
+
+          <div
+            class="transfers__segment--operations-cancel transfer__segment--radius transfer__segment--operations-box"
+          >
+            <form
+              class="transfer__segment--form--second transfer__segment--form--height form__cancel"
+            >
+              <label for="">Your Username:</label>
+              <input type="text" id="cancel" />
+              <label for="">Your Password:</label>
+              <input
+                type="password"
+                id="password"
+                autocomplete="current-password"
+              />
+              <button>Confirm</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
