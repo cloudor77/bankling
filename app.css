@@ -2,14 +2,12 @@
   overflow: hidden;
 }
 
-/* NAVBAR */
-
 .nav__segment {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 5.25rem;
-  /* background-color: var(--main-bg-color-1); */
+
   border-radius: 0.115em;
   overflow: hidden;
 }
@@ -420,34 +418,6 @@
   z-index: 1000;
   opacity: 1;
 }
-
-/* @media screen and (max-width: 1600px) {
-  .allBankRef__label {
-    font-size: 1.15em;
-  }
-
-  #allBankRef__input {
-    width: 50em;
-    height: 15em;
-  }
-
-  .form__submit__button {
-    width: 15em;
-    font-size: 0.95em;
-  }
-
-  .appTitle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    transform: rotate(-90deg);
-    margin: 4.75em 0em -4.75em 0em;
-    padding: 1em 1em 0em 0em;
-    text-align: center;
-    text-transform: uppercase;
-  }
-} */
 
 @media screen and (max-width: 1024px) {
   .nav__segment {

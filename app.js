@@ -6,15 +6,30 @@ const accountOne = {
   currency: "CZK",
   locale: "cs",
   password: 1234,
-  transfer_dates: [],
+  transfer_dates: [
+    "2023-01-20T14:01:16Z",
+    "2023-09-25T08:52:27Z",
+    "2023-09-08T08:26:07Z",
+    "2023-07-25T11:31:07Z",
+    "2023-04-06T07:50:42Z",
+    "2023-05-22T08:09:11Z",
+  ],
 };
 const accountTwo = {
   fullname: "Susan Boyle",
   transfers: [3000, 100, -700, 150, -69, 333, -10],
-  currency: "",
+  currency: "GBP",
   locale: "en-GB",
   password: "beckham",
-  transfer_dates: [],
+  transfer_dates: [
+    "2023-02-21T13:47:47Z",
+    "2023-04-27T07:38:27Z",
+    "2023-08-15T07:44:34Z",
+    "2023-07-30T06:32:09Z",
+    "2023-02-18T14:47:52Z",
+    "2023-05-22T11:33:17Z",
+    "2023-08-10T08:15:43Z",
+  ],
 };
 const accountThree = {
   fullname: "David Smith",
@@ -22,7 +37,15 @@ const accountThree = {
   currency: "USD",
   locale: "en-US",
   password: 1337,
-  transfer_dates: [],
+  transfer_dates: [
+    "2023-08-09T09:03:27Z",
+    "2023-07-14T14:07:02Z",
+    "2023-03-23T07:17:57Z",
+    "2023-07-09T11:44:18Z",
+    "2023-06-10T15:47:48Z",
+    "2023-09-06T08:00:32Z",
+    "2023-06-29T07:27:00Z",
+  ],
 };
 
 const ALL_ACCOUNTS = [accountOne, accountTwo, accountThree];
@@ -89,6 +112,14 @@ const updateInterface = (account) => {
   displayTransfers(account);
 };
 
+const formatDate = (date, locale) => {
+  return new Intl.DateTimeFormat(locale, {
+    day: "2-digit",
+    month: "2-digit",
+    year: "2-digit",
+  }).format(date);
+};
+
 const formatCurrency = (value, locale, currency) => {
   return new Intl.NumberFormat(locale, {
     currency: currency,
@@ -150,7 +181,8 @@ const displayTransfers = (account, sort = false) => {
 
   sorting.forEach((t, i) => {
     const transferType = t > 0 ? "incoming" : "outgoing";
-
+    const dates = new Date(account.transfer_dates[i]);
+    const formatDates = formatDate(dates, account.locale);
     const transferCurrencyFormat = formatCurrency(
       t,
       account.locale,
@@ -163,7 +195,7 @@ const displayTransfers = (account, sort = false) => {
               <div class="transfer_type transfer__type--${transferType}">
                 <p><span>${i + 1}</span>${transferType}</p>
               </div>
-              <p class="transfer__date">${new Date().toISOString()}</p>
+              <p class="transfer__date">${formatDates}</p>
             </div>
             <div class="transfer__amount">
               <span class="transfer__amount--value">${transferCurrencyFormat}</span>
@@ -237,8 +269,7 @@ function countdownTimer() {
   return timer;
 }
 
-const logOutUser = (e) => {
-  e.preventDefault();
+const logOutUser = () => {
   toggleAppSegment(0);
   loginFormSubmit.style.display = "flex";
   logoutButton.style.display = "none";
@@ -253,7 +284,8 @@ loanForm.addEventListener("submit", (e) => {
 
   if (loanValue > 0 && currentUser) {
     setTimeout(() => {
-      const updatedArray = currentUser.transfers.push(loanValue);
+      currentUser.transfers.push(loanValue);
+      currentUser.transfer_dates.push(new Date().toISOString());
 
       updateInterface(currentUser);
 
@@ -284,6 +316,8 @@ transferForm.addEventListener("submit", (e) => {
     setTimeout(() => {
       currentUser.transfers.push(-amountValue);
       receiverAccount.transfers.push(amountValue);
+      currentUser.transfer_dates.push(new Date().toISOString());
+      receiverAccount.transfer_dates.push(new Date().toISOString());
 
       updateInterface(currentUser);
       clearInterval(timer);
