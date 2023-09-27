@@ -14,7 +14,6 @@
 
 #nav__title {
   font-size: var(--gigantic-font);
-
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -41,8 +40,8 @@
   color: var(--warning-color);
   opacity: 0;
   transition: all 500ms;
-  text-transform: uppercase;
 
+  text-transform: uppercase;
   letter-spacing: 0.1rem;
 }
 
@@ -68,13 +67,12 @@
   outline: none;
 
   text-align: center;
-
   font-size: 1rem;
 }
 
 .login__input--label input:hover,
 .login__input--label input:focus {
-  outline: 1px solid black;
+  outline: var(--border-size-small) solid black;
 }
 
 .login__button {
@@ -93,19 +91,20 @@
 }
 .login__button:hover,
 .login__button:focus {
-  outline: 0.02rem solid var(--main-ink-color-1);
+  outline: var(--border-size-small) solid black;
 }
 
 .logout__button {
   display: none;
-  transition: all 300ms;
   flex-wrap: wrap;
   justify-self: baseline;
+
+  transition: all 500ms;
 }
 
 .logout__button:hover,
 .logout__button:focus {
-  outline: 0.02rem solid var(--main-ink-color-1);
+  outline: var(--border-size-small) solid black;
 }
 
 .app {
@@ -119,7 +118,7 @@
   grid-template-rows: 5rem repeat(3, 12.5rem);
 
   opacity: 0;
-  transition: all 500ms;
+  transition: all 1000ms;
   overflow-y: hidden;
 }
 
@@ -376,47 +375,36 @@
   outline: 1px solid black;
 }
 
-.modal__window {
-  position: fixed;
-  opacity: 0;
-  top: 20%;
-  right: 0;
-  bottom: 0;
-  left: 27%;
-  width: 60em;
-  height: 30em;
-  border: var(--border-size-large) solid rgb(229, 228, 228);
-  background-color: var(--main-bg-color);
-  border-radius: 0.15em;
-  transition: all 500ms ease-in-out;
+.app__reload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15% auto 0 auto;
 }
 
-.modal__warning--title {
-  text-align: center;
-  margin: 0.95em;
+.app__reload p {
   font-size: var(--big-font);
   text-transform: uppercase;
-  font-weight: bold;
+  padding-bottom: 0.5rem;
 }
 
-.modal__warning--message {
-  text-align: center;
-  margin: 0.75em;
-  padding: 5em 0em;
-  font-size: var(--small-font);
-  font-weight: 600;
-}
-
-.modal__close {
-  display: block;
-  margin: auto;
+.app__reload button {
   padding: var(--button-padding);
-  width: var(--button-width);
+  border-radius: var(--button-label-radius);
+  background-color: var(--secondary-bg-color);
+
+  border: none;
+  outline: none;
+
+  text-align: center;
+
+  font-size: 1rem;
 }
 
-.modal-showup {
-  z-index: 1000;
-  opacity: 1;
+.app__reload button:focus,
+.app__reload button:hover {
+  outline: var(--border-size-small) solid black;
 }
 
 @media screen and (max-width: 1024px) {

@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Bank App</title>
+    <title>Bankling</title>
 
     <link rel="stylesheet" href="basic.css" />
 
@@ -29,7 +29,11 @@
             </div>
             <div class="login__input--label">
               <label>Password: </label>
-              <input type="password" class="login__input--passcode" />
+              <input
+                type="password"
+                class="login__input--passcode"
+                autocomplete="on"
+              />
             </div>
             <button class="login__button">Log In</button>
             <p class="login__warning"></p>
@@ -109,11 +113,7 @@
               <label for="">Your Username:</label>
               <input type="text" id="cancel" />
               <label for="">Your Password:</label>
-              <input
-                type="password"
-                id="password"
-                autocomplete="current-password"
-              />
+              <input type="password" id="password" autocomplete="on" />
               <button>Confirm</button>
             </form>
           </div>

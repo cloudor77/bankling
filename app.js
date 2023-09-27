@@ -50,11 +50,6 @@ const accountThree = {
 
 const ALL_ACCOUNTS = [accountOne, accountTwo, accountThree];
 
-const storagedAccounts = sessionStorage.setItem(
-  "ALL_ACCOUNTS",
-  JSON.stringify(ALL_ACCOUNTS)
-);
-
 const entireAppSegment = document.querySelector(".app");
 
 const loginUsername = document.querySelector(".login__input--username");
@@ -341,10 +336,37 @@ cancelAccountForm.addEventListener("submit", (e) => {
     const index = ALL_ACCOUNTS.findIndex(
       (account) => account.username === usernameValue
     );
+
     ALL_ACCOUNTS.splice(index, 1);
+    cancelInputUsername.value = cancelInputPassword.value = "";
 
     logOutUser();
+
+    setTimeout(() => {
+      if (ALL_ACCOUNTS.length === 0) {
+        reloadPageText();
+      }
+    }, 1500);
   }
 });
+
+const reloadPageText = () => {
+  const reload = (e) => {
+    e.preventDefault();
+    window.location.reload();
+  };
+  const createText = `
+    <div class='app__reload'>
+      <p>Ran out of all predefined accounts, please click button below to reload the page</p>
+      <button class='app__reload-button'>Reload Page</button>
+    </div>
+  `;
+
+  navbar.insertAdjacentHTML("afterend", createText);
+
+  const buttonRld = document.querySelector(".app__reload-button");
+
+  buttonRld.addEventListener("click", reload);
+};
 
 logoutButton.addEventListener("click", logOutUser);

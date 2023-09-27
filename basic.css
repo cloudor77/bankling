@@ -47,7 +47,3 @@ html {
   color: var(--main-ink-color-1);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-
-.modal-showup {
-  z-index: 1000;
-}
