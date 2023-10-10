@@ -1,7 +1,7 @@
 "use strict";
 
 const accountOne = {
-  fullname: "Martin Krato",
+  fullname: "John Wick",
   transfers: [50000, 2500, -18000, 300, 4400, -5000],
   currency: "CZK",
   locale: "cs",
@@ -119,6 +119,7 @@ const formatCurrency = (value, locale, currency) => {
   return new Intl.NumberFormat(locale, {
     currency: currency,
     style: "currency",
+    unitDisplay: "long",
   }).format(value);
 };
 
